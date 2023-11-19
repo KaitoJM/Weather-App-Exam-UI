@@ -25,12 +25,14 @@ export default {
     longitude(val) {
       if (val) {
         this.fetchData();
+        this.fetchWeather();
       }
     }
   },
   methods: {
     ...mapActions({
-      fetchData: 'Location/fetchData'
+      fetchData: 'Location/fetchData',
+      fetchWeather: 'Location/fetchWeather'
     }),
   }
 }

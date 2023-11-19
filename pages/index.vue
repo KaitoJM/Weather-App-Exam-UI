@@ -1,8 +1,12 @@
 <template>
   <div>
-    Test
+    Location: 
     <pre>
       {{ data }}
+    </pre>
+    Weather: 
+    <pre>
+      {{ weather }}
     </pre>
   </div>
 </template>
@@ -18,12 +22,12 @@ export default {
     computed: {
     ...mapGetters({
       data: 'Location/data',
+      weather: 'Location/weather',
     })
   },
     methods: {
       ...mapActions({
         setDefault: 'Location/setDefault',
-        fetchData: 'Location/fetchData'
       }),
     },
     mounted() {

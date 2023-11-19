@@ -3,6 +3,7 @@ export default {
     latitude: '',
     longitude: '',
     data: {},
+    weather: {},
     fetching: false,
   }),
   getters: {
@@ -14,6 +15,9 @@ export default {
     },
     data: state => {
         return state.data
+    },
+    weather: state => {
+      return state.weather
     },
     fetching: state => {
       return state.fetching
@@ -38,6 +42,9 @@ export default {
     setData(state, entities) {
       state.data = entities
     },
+    setWeather(state, entities) {
+      state.weather = entities
+    },
     startLoading(state) {
       state.fetching = true
     },
@@ -58,7 +65,7 @@ export default {
     fetchData(context) {
       context.commit('startLoading')
 
-      let url = '/get-weather'
+      let url = '/get-address-by-coordinates'
 
       return this.$axios
         .post(url, {
@@ -69,6 +76,25 @@ export default {
           let data = response.data;
 
           context.commit('setData', data)
+          context.commit('stopLoading')
+
+          return data
+        })
+    },
+    fetchWeather(context) {
+      context.commit('startLoading')
+
+      let url = '/get-weather'
+
+      return this.$axios
+        .post(url, {
+          latitude: context.state.latitude,
+          longitude: context.state.longitude,
+        })
+        .then(response => {
+          let data = response.data;
+
+          context.commit('setWeather', data)
           context.commit('stopLoading')
 
           return data
