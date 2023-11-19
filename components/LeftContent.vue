@@ -20,19 +20,23 @@ export default {
     latitude(val) {
       if (val) {
         this.fetchData();
+        this.fetchWeather();
+        this.fetchForecast();
       }
     },
     longitude(val) {
       if (val) {
         this.fetchData();
         this.fetchWeather();
+        this.fetchForecast();
       }
     }
   },
   methods: {
     ...mapActions({
       fetchData: 'Location/fetchData',
-      fetchWeather: 'Location/fetchWeather'
+      fetchWeather: 'Location/fetchWeather',
+      fetchForecast: 'Location/fetchForecast'
     }),
   }
 }

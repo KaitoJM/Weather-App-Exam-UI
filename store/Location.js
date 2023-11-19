@@ -4,6 +4,7 @@ export default {
     longitude: '',
     data: {},
     weather: {},
+    forecast: [],
     fetching: false,
   }),
   getters: {
@@ -18,6 +19,9 @@ export default {
     },
     weather: state => {
       return state.weather
+    },
+    forecast: state => {
+      return state.forecast
     },
     fetching: state => {
       return state.fetching
@@ -53,6 +57,9 @@ export default {
     },
     setWeather(state, entities) {
       state.weather = entities
+    },
+    setForecast(state, entities) {
+      state.forecast = entities
     },
     startLoading(state) {
       state.fetching = true
@@ -92,7 +99,8 @@ export default {
           context.commit('stopLoading')
 
           return data
-        })
+        }
+      )
     },
     fetchWeather(context) {
       context.commit('startLoading')
@@ -111,7 +119,32 @@ export default {
           context.commit('stopLoading')
 
           return data
+        }
+      )
+    },
+    fetchForecast(context) {
+      context.commit('startLoading')
+
+      let url = '/get-forecast'
+
+      return this.$axios
+        .post(url, {
+          latitude: context.state.latitude,
+          longitude: context.state.longitude,
         })
+        .then(response => {
+          let data = [];
+
+          if (response.data?.list?.length) {
+            data = response.data.list;
+          }
+
+          context.commit('setForecast', data)
+          context.commit('stopLoading')
+
+          return data
+        }
+      )
     },
   },
 }

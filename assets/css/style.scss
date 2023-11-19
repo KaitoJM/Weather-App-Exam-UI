@@ -3,7 +3,7 @@
     height: 100%;
 
     .left-container {
-        width: 500px;
+        width: 350px;
         box-sizing: border-box;
         padding: 20px;
         background-color: #039BE5;
@@ -12,8 +12,16 @@
     }
 
     .main-content {
-        width: calc(100vw - 500px);
+        width: calc(100vw - 350px);
         box-sizing: border-box;
         padding: 20px;
     }
+}
+
+.box {
+    box-sizing: border-box;
+    padding: 15px;
+    background-color: #fff;
+    box-shadow: 0 1px 2px #000;
+    border-radius: 5px;
 }
