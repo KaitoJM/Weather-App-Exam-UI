@@ -22,6 +22,15 @@ export default {
     fetching: state => {
       return state.fetching
     },
+    busy: state => {
+      let loading = true;
+
+      if (state.weather?.weather?.length && state.data?.name) {
+        loading = false;
+      }
+
+      return loading;
+    }
   },
   mutations: {
     setDefault(state, params) {
@@ -73,7 +82,11 @@ export default {
           longitude: context.state.longitude,
         })
         .then(response => {
-          let data = response.data;
+          let data = null;
+
+          if (response.data?.results?.length) {
+            data = response.data.results[0];
+          }
 
           context.commit('setData', data)
           context.commit('stopLoading')

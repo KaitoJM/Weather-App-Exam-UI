@@ -1,0 +1,19 @@
+.main-container {
+    display: flex;
+    height: 100%;
+
+    .left-container {
+        width: 500px;
+        box-sizing: border-box;
+        padding: 20px;
+        background-color: #039BE5;
+        height: auto;
+        color: #fff;
+    }
+
+    .main-content {
+        width: calc(100vw - 500px);
+        box-sizing: border-box;
+        padding: 20px;
+    }
+}

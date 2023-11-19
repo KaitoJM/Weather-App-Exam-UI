@@ -1,13 +1,6 @@
 <template>
-  <div>
-    Location: 
-    <pre>
-      {{ data }}
-    </pre>
-    Weather: 
-    <pre>
-      {{ weather }}
-    </pre>
+  <div class="main-content">
+    <main-info />
   </div>
 </template>
 
@@ -15,15 +8,15 @@
 import LeftContent from '../components/LeftContent.vue';
 import { mapActions } from 'vuex'
 import { mapGetters } from 'vuex'
+import MainInfo from '../components/MainInfo.vue';
 
 export default {
-    name: 'IndexPage',
-    components: { LeftContent },
-    computed: {
+  name: 'IndexPage',
+  components: { LeftContent, MainInfo },
+  computed: {
     ...mapGetters({
-      data: 'Location/data',
-      weather: 'Location/weather',
-    })
+      busy: 'Location/busy',
+    }),
   },
     methods: {
       ...mapActions({

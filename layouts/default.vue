@@ -1,8 +1,10 @@
 <template>
   <v-app>
     <v-main>
-      <LeftContent />
-      <Nuxt />
+      <div class="main-container">
+        <LeftContent />
+        <Nuxt />
+      </div>
     </v-main>
     <v-footer
       :absolute="!fixed"

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="left-container">
     Left Side <br />
     Latitude: {{ latitude }} <br />
     Longitude: {{ longitude }}
