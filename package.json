@@ -16,7 +16,11 @@
     "vue-horizontal": "^0.8.12",
     "vue-server-renderer": "^2.7.10",
     "vue-template-compiler": "^2.7.10",
-    "vuetify": "^2.6.10"
+    "vuetify": "^2.6.10",
+    "@fortawesome/free-brands-svg-icons": "^6.4.2",
+    "@fortawesome/free-regular-svg-icons": "^6.4.2",
+    "@fortawesome/free-solid-svg-icons": "^6.4.2",
+    "@nuxtjs/fontawesome": "^1.1.2"
   },
   "devDependencies": {
     "@nuxtjs/vuetify": "^1.12.3",

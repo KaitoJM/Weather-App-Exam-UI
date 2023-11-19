@@ -29,6 +29,8 @@ export default {
   align-items: center;
   gap: 10px;
   box-shadow: none;
+  padding: 15px;
+  box-sizing: border-box;
 
   .icon-container {
     background-color: #e7f2f7;

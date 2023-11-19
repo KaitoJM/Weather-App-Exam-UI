@@ -36,6 +36,7 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/vuetify
     '@nuxtjs/vuetify',
+    '@nuxtjs/fontawesome'
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -64,6 +65,13 @@ export default {
 
   axios: {
     baseURL: api_url,
+  },
+
+  fontawesome: {
+    icons:{
+      solid:true,
+      brands:true
+    }
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
