@@ -1,4 +1,5 @@
 import colors from 'vuetify/es5/util/colors'
+const api_url = 'http://127.0.0.1:8000/api'
 
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
@@ -38,13 +39,14 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
+    '@nuxtjs/axios',
   ],
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
     theme: {
-      dark: true,
+      dark: false,
       themes: {
         dark: {
           primary: colors.blue.darken2,
@@ -57,6 +59,10 @@ export default {
         }
       }
     }
+  },
+
+  axios: {
+    baseURL: api_url,
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
