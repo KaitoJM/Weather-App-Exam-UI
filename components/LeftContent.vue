@@ -68,7 +68,7 @@ export default {
 
 .search-container {
   background-color: #fff;
-  padding: 20px;
+  padding: 15px;
   border-radius: 10px;
 }
 </style>

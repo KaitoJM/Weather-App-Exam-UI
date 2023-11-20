@@ -6,10 +6,17 @@
 		</div>
 		<div class="box-body">
 			<div class="value">
-        {{ data.wind.gust ? data.wind.gust : 0 }} 
+        {{ data.wind.gust ? data.wind.speed : 0 }} 
         <span class="unit">m/sec.</span>
       </div>
+      <div class="minor-detail">
+        Direction: {{ data.wind.deg }}&deg;<br />
+        Gust: {{ data.wind.gust }} m/sec.
+      </div>
 		</div>
+    <div class="box-footer">
+      Wind speed. Unit Default: meter/sec
+    </div>
 	</div>
 </template>
 

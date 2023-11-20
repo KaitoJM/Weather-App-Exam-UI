@@ -10,6 +10,9 @@
         <span class="unit">km.</span>
       </div>
 		</div>
+    <div class="box-footer">
+      The distance one can see ahead in the atmosphere.
+    </div>
 	</div>
 </template>
 

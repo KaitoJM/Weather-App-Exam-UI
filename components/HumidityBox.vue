@@ -5,8 +5,11 @@
 			Humidity
 		</div>
 		<div class="box-body">
-			<div class="value">{{ data.main.humidity }}%</div>
+			<div class="value">{{ data.main.humidity }}<span class="unit">%</span></div>
 		</div>
+    <div class="box-footer">
+      Measure of the amount of moisture or water vapor present in the air
+    </div>
 	</div>
 </template>
 
