@@ -6,6 +6,10 @@
       <search-address-auto-complete />
     </div>
     <br />
+    <div>
+      <recommended-places />
+    </div>
+    <br />
   </div>
 </template>
 
@@ -13,8 +17,12 @@
 import { mapGetters } from 'vuex'
 import { mapActions } from 'vuex'
 import SearchAddressAutoComplete from './SearchAddressAutoComplete.vue';
+import RecommendedPlaces from './RecommendedPlaces.vue';
 export default {
-  components: { SearchAddressAutoComplete },
+  components: { SearchAddressAutoComplete, RecommendedPlaces },
+  mounted() {
+    this.defaultPlaces();
+  },
   computed: {
     ...mapGetters({
       latitude: 'Location/latitude',
@@ -41,7 +49,8 @@ export default {
     ...mapActions({
       fetchData: 'Location/fetchData',
       fetchWeather: 'Location/fetchWeather',
-      fetchForecast: 'Location/fetchForecast'
+      fetchForecast: 'Location/fetchForecast',
+      defaultPlaces: 'Location/defaultPlaces'
     }),
   }
 }
