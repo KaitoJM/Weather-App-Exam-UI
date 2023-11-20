@@ -3,7 +3,7 @@
     height: 100%;
 
     .left-container {
-        width: 350px;
+        width: 35%;
         box-sizing: border-box;
         padding: 20px;
         background-color: #039BE5;
@@ -12,10 +12,15 @@
     }
 
     .main-content {
-        width: calc(100vw - 350px);
+        width: calc(100vw - 35%);
         box-sizing: border-box;
         padding: 20px;
     }
+}
+
+.v-footer {
+    background-color: #e7f2f7 !important;
+    border-top: 1px solid #dfedf3;
 }
 
 .box {
@@ -41,11 +46,13 @@
     border-radius: 20px;
     width: 25%;
     min-height: 200px;
+    box-shadow: 0px 4px 0px 1px #dfedf3;
+    border: 1px solid #dfedf3;
 
     .thumb-head {
         box-sizing: border-box;
         padding: 10px 20px;
-        border-bottom: 1px solid #7ea1b3;
+        border-bottom: 1px solid #b5d5e4;
         font-size: 0.9em;
         text-transform: uppercase;
         color: #235065;

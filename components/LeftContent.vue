@@ -1,15 +1,20 @@
 <template>
   <div class="left-container">
-    Left Side <br />
-    Latitude: {{ latitude }} <br />
-    Longitude: {{ longitude }}
+    <img src="~static/profile.png" class="profile" />
+    <br />
+    <div class="search-container">
+      <search-address-auto-complete />
+    </div>
+    <br />
   </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
 import { mapActions } from 'vuex'
+import SearchAddressAutoComplete from './SearchAddressAutoComplete.vue';
 export default {
+  components: { SearchAddressAutoComplete },
   computed: {
     ...mapGetters({
       latitude: 'Location/latitude',
@@ -41,3 +46,21 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.profile {
+  width: 150px;
+  border-radius: 20px;
+  display: block;
+  margin: auto;
+  margin-top: 20px;
+  border: 3px solid #0d7db4;
+  margin-bottom: 20px;
+}
+
+.search-container {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+}
+</style>

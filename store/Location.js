@@ -2,6 +2,7 @@ export default {
   state: () => ({
     latitude: '',
     longitude: '',
+    address_options: [],
     data: {},
     weather: {},
     forecast: [],
@@ -13,6 +14,9 @@ export default {
     },
     longitude: state => {
       return state.longitude
+    },
+    address_options: state => {
+      return state.address_options
     },
     data: state => {
         return state.data
@@ -29,7 +33,7 @@ export default {
     busy: state => {
       let loading = true;
 
-      if (state.weather?.weather?.length && state.data?.name) {
+      if (state.weather?.weather?.length && state.data?.country) {
         loading = false;
       }
 
@@ -55,6 +59,9 @@ export default {
     setData(state, entities) {
       state.data = entities
     },
+    setAddressOptions(state, entities) {
+      state.address_options = entities
+    },
     setWeather(state, entities) {
       state.weather = entities
     },
@@ -67,6 +74,9 @@ export default {
     stopLoading(state) {
       state.fetching = false
     },
+    clearPlacesOptions(state) {
+      state.address_options = [];
+    }
   },
   actions: {
     setDefault(context) {
@@ -146,5 +156,28 @@ export default {
         }
       )
     },
+    searchPlaces(context, search) {
+      context.commit('startLoading')
+
+      let url = '/search-address'
+
+      return this.$axios
+        .post(url, {
+          search: search,
+        })
+        .then(response => {
+          let data = [];
+
+          if (response.data?.results?.length) {
+            data = response.data.results;
+          }
+
+          context.commit('setAddressOptions', data)
+          context.commit('stopLoading')
+
+          return data
+        }
+      )
+    }
   },
 }

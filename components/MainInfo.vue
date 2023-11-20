@@ -4,7 +4,7 @@
     <div class="info-label">
       <div class="weather">{{ weather.weather[0].main }}</div>
       <div class="city">{{ data.village }} {{ data.city }}</div>
-      <div class="country">{{ data.country }}</div>
+      <div class="country">{{ data.state }} {{ data.country }}</div>
     </div>
   </div>
 </template>

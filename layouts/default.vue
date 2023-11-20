@@ -7,7 +7,7 @@
       </div>
     </v-main>
     <v-footer
-      :absolute="!fixed"
+      fixed
       app
     >
       <span>Weather Application Exam by <strong>John Mark Mancol</strong></span>

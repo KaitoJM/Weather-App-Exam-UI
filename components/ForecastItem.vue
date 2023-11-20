@@ -37,6 +37,12 @@ export default {
     padding: 10px;
     box-sizing: border-box;
     border-radius: 20px;
+    box-shadow: 0px 4px 0px 1px #dfedf3;
+    border: 1px solid #dfedf3;
+
+    img {
+      filter: drop-shadow(2px 5px 0px orange)
+    }
   }
 
   .weather-label {
