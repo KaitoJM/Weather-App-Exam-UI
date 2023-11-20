@@ -61,7 +61,6 @@ export default {
   width: 150px;
   border-radius: 20px;
   display: block;
-  margin: auto;
   margin-top: 20px;
   border: 3px solid #0d7db4;
   margin-bottom: 20px;

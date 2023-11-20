@@ -33,7 +33,7 @@ export default {
     busy: state => {
       let loading = true;
 
-      if (state.weather?.weather?.length && state.data?.country) {
+      if (state.weather?.weather?.length && state.data?.country && state.forecast.length) {
         loading = false;
       }
 
@@ -76,7 +76,16 @@ export default {
     },
     clearPlacesOptions(state) {
       state.address_options = [];
-    }
+    },
+    clearWeather(state) {
+      state.weather = {}
+    },
+    clearData(state) {
+      state.data = {}
+    },
+    clearForecast(state) {
+      state.forecast = {}
+    },
   },
   actions: {
     setDefault(context) {
@@ -90,6 +99,7 @@ export default {
     },
     fetchData(context) {
       context.commit('startLoading')
+      context.commit('clearData')
 
       let url = '/get-address-by-coordinates'
 
@@ -114,6 +124,7 @@ export default {
     },
     fetchWeather(context) {
       context.commit('startLoading')
+      context.commit('clearWeather')
 
       let url = '/get-weather'
 
@@ -134,6 +145,7 @@ export default {
     },
     fetchForecast(context) {
       context.commit('startLoading')
+      context.commit('clearForecast')
 
       let url = '/get-forecast'
 

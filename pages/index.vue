@@ -1,15 +1,18 @@
 <template>
   <div class="main-content">
-    <main-info />
-    <div class="other-details">
-      <forecast-box />
-      <div class="thumbs">
-        <FeelsLikeBox />
-        <humidity-box />
-        <visibility-box />
-        <wind-box />
+    <template v-if="!busy">
+      <main-info />
+      <div class="other-details">
+        <forecast-box />
+        <div class="thumbs">
+          <FeelsLikeBox />
+          <humidity-box />
+          <visibility-box />
+          <wind-box />
+        </div>
       </div>
-    </div>
+    </template>
+    <loader v-else />
   </div>
 </template>
 
@@ -23,10 +26,11 @@ import FeelsLikeBox from '../components/FeelsLikeBox.vue';
 import HumidityBox from '../components/HumidityBox.vue';
 import VisibilityBox from '../components/VisibilityBox.vue';
 import WindBox from '../components/WindBox.vue';
+import Loader from '../components/Loader.vue';
 
 export default {
   name: 'IndexPage',
-  components: { LeftContent, MainInfo, ForecastBox, FeelsLikeBox, HumidityBox, VisibilityBox, WindBox },
+  components: { LeftContent, MainInfo, ForecastBox, FeelsLikeBox, HumidityBox, VisibilityBox, WindBox, Loader },
   computed: {
     ...mapGetters({
       busy: 'Location/busy',

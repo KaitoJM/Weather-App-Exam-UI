@@ -6,7 +6,7 @@
 		</div>
 		<div class="box-body">
 			<div class="value">
-        {{ data.wind.gust }} 
+        {{ data.wind.gust ? data.wind.gust : 0 }} 
         <span class="unit">m/sec.</span>
       </div>
 		</div>
