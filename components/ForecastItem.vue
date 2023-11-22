@@ -32,6 +32,10 @@ export default {
   padding: 15px;
   box-sizing: border-box;
 
+  @media(max-width: 767px) {
+    padding: 10px;
+  }
+
   .icon-container {
     background-color: #e7f2f7;
     padding: 10px;
@@ -42,6 +46,14 @@ export default {
 
     img {
       filter: drop-shadow(2px 5px 0px orange)
+    }
+
+    @media(max-width: 767px) {
+      padding: 8px;
+
+      img {
+        width: 60px
+      }
     }
   }
 

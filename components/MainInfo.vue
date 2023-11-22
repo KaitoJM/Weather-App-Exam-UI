@@ -1,7 +1,7 @@
 <template>
   <div v-if="!busy">
     <div class="main-info">
-      <img :src="`https://openweathermap.org/img/wn/${weather.weather[0].icon}@4x.png`" alt="">
+      <img class="weather-img" :src="`https://openweathermap.org/img/wn/${weather.weather[0].icon}@4x.png`" alt="">
       <div class="info-label">
         <div class="weather-info">
           <div class="weather">{{ weather.weather[0].main }}</div>
@@ -41,6 +41,20 @@ export default {
   gap: 20px;
   align-items: center;
   width: 100%;
+
+  @media(max-width: 1110px) {
+    font-size: 0.7em;
+  }
+
+  @media(max-width: 640px) {
+    .weather-img {
+      width: 100px;
+    }
+  }
+
+  @media(max-width: 425px) {
+    font-size: 0.5em;
+  }
 
   .weather-info {
     display: flex;

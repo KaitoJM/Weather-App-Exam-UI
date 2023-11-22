@@ -1,15 +1,21 @@
 <template>
-  <div class="left-container">
-    <img src="~static/profile.png" class="profile" />
-    <br />
-    <div class="search-container">
-      <search-address-auto-complete />
+  <div class="left-container" :class="{open: open}" @click="open = !open">
+    <div class="scroller">
+      <button class="search-trigger">
+        <v-icon v-if="!open">mdi-map-search</v-icon>
+        <v-icon v-else>mdi-close</v-icon>
+      </button>
+      <img src="~static/profile.png" class="profile" />
+      <br />
+      <div class="search-container">
+        <search-address-auto-complete />
+      </div>
+      <br />
+      <div>
+        <recommended-places />
+      </div>
+      <br />
     </div>
-    <br />
-    <div>
-      <recommended-places />
-    </div>
-    <br />
   </div>
 </template>
 
@@ -19,6 +25,11 @@ import { mapActions } from 'vuex'
 import SearchAddressAutoComplete from './SearchAddressAutoComplete.vue';
 import RecommendedPlaces from './RecommendedPlaces.vue';
 export default {
+  data() {
+    return {
+      open: false
+    }
+  },
   components: { SearchAddressAutoComplete, RecommendedPlaces },
   mounted() {
     this.defaultPlaces();
@@ -70,5 +81,25 @@ export default {
   background-color: #fff;
   padding: 15px;
   border-radius: 10px;
+}
+
+.search-trigger {
+  position: absolute;
+  top: 20px;
+  left: 420px;
+  display: none;
+  height: 50px !important;
+  width: 50px;
+  border-radius: 0 5px 5px 0;
+  background-color: #049be5 !important;
+  
+  i {
+    color: #fff !important;
+  }
+
+  @media(max-width: 950px) {
+    display: block;
+    left: 400px;
+  }
 }
 </style>

@@ -31,5 +31,14 @@ export default {
   widows: 100%;
   padding: 20px;
   box-sizing: border-box;
+  
+  @media(max-width: 767px) {
+    font-size: 0.8em;
+  }
+
+  @media(max-width: 425px) {
+    padding: 10px;
+    font-size: 0.7em;
+  }
 }
 </style>
